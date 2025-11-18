@@ -647,7 +647,6 @@ static int lc_dilithium_sign_init_impl(struct lc_dilithium_ctx *ctx,
 	struct lc_hash_ctx *hash_ctx;
 	int ret;
 
-	/* rng_ctx is allowed to be NULL as handled below */
 	if (!ctx || !sk)
 		return -EINVAL;
 

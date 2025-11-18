@@ -103,6 +103,19 @@ option('dilithium_ed25519', type: 'feature', value: 'enabled',
 option('dilithium_ed448', type: 'feature', value: 'enabled',
        description: 'Dilithium-ED448 Hybrid Signature')
 
+option('dilithium_use_mldsa_native', type: 'boolean', value: false,
+       description: '''Use mldsa-native implementation
+
+When enabled, this option uses the mldsa-native implementation from
+https://github.com/pq-code-package/mldsa-native instead of the default
+leancrypto Dilithium implementation. The mldsa-native sources are included
+locally in ml-dsa/src/mldsa-native/mldsa-native/.
+
+This provides highly optimized implementations with platform-specific backends
+(AVX2, AArch64, etc.) and follows the monolithic_build_multilevel pattern to
+build all three security levels in a single compilation unit.
+''')
+
 option('kyber_1024', type: 'feature', value: 'enabled',
        description: '''Kyber-1024 Support
 

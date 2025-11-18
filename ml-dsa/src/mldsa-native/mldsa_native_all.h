@@ -1,0 +1,60 @@
+/*
+ * Copyright (c) The mlkem-native project authors
+ * SPDX-License-Identifier: Apache-2.0 OR ISC OR MIT
+ */
+
+#ifndef LC_MLDSA_NATIVE_ALL_H
+#define LC_MLDSA_NATIVE_ALL_H
+
+#define MLD_CONFIG_API_NO_SUPERCOP
+
+#ifdef LC_DILITHIUM_TYPE_87
+#define MLD_CONFIG_API_PARAMETER_SET 87
+#define MLD_CONFIG_API_NAMESPACE_PREFIX mldsa_native_87
+#elif defined(LC_DILITHIUM_TYPE_65)
+#define MLD_CONFIG_API_PARAMETER_SET 65
+#define MLD_CONFIG_API_NAMESPACE_PREFIX mldsa_native_65
+#elif defined(LC_DILITHIUM_TYPE_44)
+#define MLD_CONFIG_API_PARAMETER_SET 44
+#define MLD_CONFIG_API_NAMESPACE_PREFIX mldsa_native_44
+#else
+#error "No LC_DILITHIUM_TYPE defined"
+#endif
+
+#include "mldsa-native/mldsa_native.h"
+
+#define MLDSA_SIG_BYTES MLDSA_BYTES(MLD_CONFIG_API_PARAMETER_SET)
+
+/* Define mldsa-native function names */
+#ifdef LC_DILITHIUM_TYPE_87
+#define lc_mldsa_native_keypair_internal mldsa_native_87_keypair_internal
+#define lc_mldsa_native_keypair mldsa_native_87_keypair
+#define lc_mldsa_native_signature mldsa_native_87_signature
+#define lc_mldsa_native_signature_internal mldsa_native_87_signature_internal
+#define lc_mldsa_native_verify mldsa_native_87_verify
+#define lc_mldsa_native_verify_internal mldsa_native_87_verify_internal
+#define lc_mldsa_native_signature_pre_hash_internal mldsa_native_87_signature_pre_hash_internal
+#define lc_mldsa_native_verify_pre_hash_internal mldsa_native_87_verify_pre_hash_internal
+#elif defined(LC_DILITHIUM_TYPE_65)
+#define lc_mldsa_native_keypair_internal mldsa_native_65_keypair_internal
+#define lc_mldsa_native_keypair mldsa_native_65_keypair
+#define lc_mldsa_native_signature mldsa_native_65_signature
+#define lc_mldsa_native_signature_internal mldsa_native_65_signature_internal
+#define lc_mldsa_native_verify mldsa_native_65_verify
+#define lc_mldsa_native_verify_internal mldsa_native_65_verify_internal
+#define lc_mldsa_native_signature_pre_hash_internal mldsa_native_65_signature_pre_hash_internal
+#define lc_mldsa_native_verify_pre_hash_internal mldsa_native_65_verify_pre_hash_internal
+#elif defined(LC_DILITHIUM_TYPE_44)
+#define lc_mldsa_native_keypair_internal mldsa_native_44_keypair_internal
+#define lc_mldsa_native_keypair mldsa_native_44_keypair
+#define lc_mldsa_native_signature mldsa_native_44_signature
+#define lc_mldsa_native_signature_internal mldsa_native_44_signature_internal
+#define lc_mldsa_native_verify mldsa_native_44_verify
+#define lc_mldsa_native_verify_internal mldsa_native_44_verify_internal
+#define lc_mldsa_native_signature_pre_hash_internal mldsa_native_44_signature_pre_hash_internal
+#define lc_mldsa_native_verify_pre_hash_internal mldsa_native_44_verify_pre_hash_internal
+#else
+#error "No LC_DILITHIUM_TYPE defined"
+#endif
+
+#endif /* LC_MLDSA_NATIVE_ALL_H */
